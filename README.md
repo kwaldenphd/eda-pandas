@@ -187,12 +187,11 @@ A few key takeaways:
 - Select specific rows and/or columns usign `iloc` when working with index positions
 - You can assign new values to selection using `loc` or `iloc`
 
+# Manipulating Data
+
 # Reshaping Data
 
 # Combining Data
-
-# Manipulating Data
-
 
 # Indexing
 
