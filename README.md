@@ -332,7 +332,7 @@ no2_subset.pivot(columns="location", values="value")
 
 71. Another example of `.pivot()`:
 
-<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_5.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_5.svg?raw=true" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_5.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_5.png?raw=true" /></a></p>
 
 72. We create a new data frame in which the unique values in `foo` our row index, and the `bar` categories our columns.
 
@@ -350,7 +350,7 @@ new_data_frame = old_data_frame.pivot(index="foo", columns="bar", values="baz")
 
 76. We'll use an example data frame that has height and weight information for two individuals.
 
-FIGURE 8
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_8.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_8.png?raw=true" /></a></p>
 
 77. In this example, we might want to be able to isolate height and weight in ways that the original data structure will not let us.
 
@@ -420,7 +420,7 @@ air_quality.groupby(["parameter", "location"]).mean()
 
 94. We can do this using `.stack()` and `.unstack()`.
 
-<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_6.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_6.svg?raw=true" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_6.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_6.png?raw=true" /></a></p>
 
 95. To reshape this data using `.stack()`:
 ```Python
@@ -429,7 +429,7 @@ stacked_data_frame.unstack()
 
 96. `.unstack()` is the inverse operation of `.stack()`.
 
-<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_7.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_7.svg?raw=true" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_7.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_7.png?raw=true" /></a></p>
 
 97. To reshape this data using `.unstack()`:
 ```Python
