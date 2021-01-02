@@ -671,21 +671,21 @@ data_frame.reset_index()
 
 # Lab Notebook Questions
 
-<blockquote>Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.</blockquote>
+Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.
 
-<blockquote>Q2: Describe element-wise calculation in your own words.</blockquote>
+Q2: Describe element-wise calculation in your own words.
 
-<blockquote>Q3: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.</blockquote>
+Q3: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.
 
-<blockquote>Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().</blockquote>
+Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().
 
-<blockquote>Q5: Write sample code for both functions. Include code + comments.</blockquote>
+Q5: Write sample code for both functions. Include code + comments.
 
-<blockquote>Q6: Describe how you are thinking about needing to use these functions in relation to data you're interested in working with as part of the final project.</blockquote>
+Q6: Describe how you are thinking about needing to use these functions in relation to data you're interested in working with as part of the final project.
 
-<blockquote>Q7: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?</blockquote>
+Q7: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?
 
-<blockquote>Q8: Write sample code for both functions. Include code + comments.</blockquote>
+Q8: Write sample code for both functions. Include code + comments.
 
-<blockquote>Q9: Describe how you are thinking about needing to use these functions for the data you plan to work with in the final project.</blockquote>
+Q9: Describe how you are thinking about needing to use these functions for the data you plan to work with in the final project.
 
