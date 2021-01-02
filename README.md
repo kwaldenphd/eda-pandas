@@ -23,7 +23,7 @@ Information and exercises in this lab are adapted from the following resources:
   * [Working with Time Series Data](#working-with-time-series-data)
   * [`.pivot()`](#pivot)
   * [`.melt()`](#melt)
-  * [`.pivot_table()`](#pivot_table
+  * [`.pivot_table()`](#pivot_table)
   * [`.stack()` and `.unstack()`](#stack-and-unstack)
 - [Combining Data](#combining-data)
   * [`.concat()`](#concat)
