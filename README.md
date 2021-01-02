@@ -17,7 +17,7 @@ Information and exercises in this lab are adapted from the following resources:
 
 # Table of Contents
 
-- [Summary Statistics and Calculations](#summary-statistics-and- calculations)
+- [Summary Statistics and Calculations](#summary-statistics-and-calculations)
   * [Creating New Columns Based on Existing Columns](#creating-new-columns-based-on-existing-columns)
 - [Manipulating and Reshaping Data](#manipulating-and-reshaping-data)
   * [Working with Time Series Data](#working-with-time-series-data)
