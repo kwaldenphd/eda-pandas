@@ -64,7 +64,7 @@ titanic.head(5)
 titanic["Age"].mean()
 ```
 
-4. We could also calculate the median age and ticket fair using `.median()`.
+4. We could also calculate the median age and ticket fare using `.median()`.
 ```Python
 titanic[["Age", "Fare"]].median()
 ```
@@ -192,13 +192,11 @@ air_quality.head()
 
 38. For our purposes, we are assuming a temperature of 25 degrees Celsius and pressure of 1013 hPa, which means the conversion factor is 1.882.
 
-39. We would need to convert all of the `station_london` column values from `ppm` to <code>mg/m<sup>3</sup></code>.
-
-40. And we would want to store the results of that calculation in a newly-created column.
+39. We would need to convert all of the `station_london` column values from `ppm` to <code>mg/m<sup>3</sup></code>. And we would want to store the results of that calculation in a newly-created column.
 
 <p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true" /></a></p>
 
-To express those steps programatically in Python:
+40. To express those steps programatically in Python:
 ```Python
 air_quality["london_mg_per_cubic"] = air_quality["station_london"] * 1.882
 
@@ -313,6 +311,7 @@ pd.read_csv("../data/air_quality_no2_long.csv", parse_dates=["datetime"])
 67. To express that programatically in Python:
 
 ```Python
+# load data
 air_quality = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv")
 
 # create subset with only no2 data
@@ -409,12 +408,12 @@ no_2.head()
 air_quality.pivot_table(values="value", index="location", columns="parameter", aggfunc="mean")
 ```
 
-We could also use `.groupby()` and `.mean()` to generate the same output.
+90. We could also use `.groupby()` and `.mean()` to generate the same output.
 ```Python
 air_quality.groupby(["parameter", "location"]).mean()
 ```
 
-90. Consult the `pandas` [documentation on pivot tables](https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html#reshaping-pivot) to learn more about this function.
+<blockquote>Consult the `pandas` <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html#reshaping-pivot">documentation on pivot tables</a> to learn more about this function.</blockquote>
 
 ## `.stack()` and `.unstack()`
 
@@ -688,4 +687,3 @@ Q7: In your own words, provide a description for .concat() and .merge(). What do
 Q8: Write sample code for both functions. Include code + comments.
 
 Q9: Describe how you are thinking about needing to use these functions for the data you plan to work with in the final project.
-
