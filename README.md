@@ -1,4 +1,4 @@
-# Lab #10: Exploratory Data Analysis Using Pandas
+# Exploratory Data Analysis Using Pandas
 
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
@@ -7,17 +7,33 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 ## Acknowledgements
 
-Adapted from `pandas` package ["Getting started"](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/) documentation.
-
-Also Wes McKinney Python for Data Analysis chapters
-Chapter 5 "Getting Started with pandas" (125-168)
-Chapter 7 "Data Cleaning and Preparation" (195-224)
-Chapter 8 "Data Wrangling: Join, Combine, and Reshape" (225-256)
-Chapter 10 "Data Aggregation and Group Operations" (293-322)
+Information and exercises in this lab are adapted from the following resources:
+- `pandas` package ["Getting started"](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/) documentation.
+- Wes McKinney's [*Python for Data Analysis: Data Wrangling With pandas, Numpy, and IPython*](https://www.oreilly.com/library/view/python-for-data/9781491957653/) (O'Reilly, 2017)
+  * Chapter 5 "Getting Started with pandas" (125-168)
+  * Chapter 7 "Data Cleaning and Preparation" (195-224)
+  * Chapter 8 "Data Wrangling: Join, Combine, and Reshape" (225-256)
+  * Chapter 10 "Data Aggregation and Group Operations" (293-322)
 
 # Table of Contents
 
-# Summary Statistics & Calculations
+- [Summary Statistics and Calculations](#summary-statistics-and- calculations)
+  * [Creating New Columns Based on Existing Columns](#creating-new-columns-based-on-existing-columns)
+- [Manipulating and Reshaping Data](#manipulating-and-reshaping-data)
+  * [Working with Time Series Data](#working-with-time-series-data)
+  * [`.pivot()`](#pivot)
+  * [`.melt()`](#melt)
+  * [`.pivot_table()`](#pivot_table
+  * [`.stack()` and `.unstack()`](#stack-and-unstack)
+- [Combining Data](#combining-data)
+  * [`.concat()`](#concat)
+  * [`.merge()`](#merge)
+- [Renaming, Mapping, and Reindexing](#renaming-mapping-and-reindexing)
+  * [Renaming Columns](#renaming-columns)
+- [Practice Problems](#practice-problems)
+- [Lab Notebook Questions](#lab-notebook-questions)  
+
+# Summary Statistics and Calculations
 
 `pandas` comes with built-in functionality for performing common mathematical and statistical calculations.
 
@@ -194,7 +210,7 @@ We've already covered how to sort or group by values in a dataframe.
 
 We can also perform more drastic data manipulations and transformations using `pandas`.
 
-## Working with time series data
+## Working with Time Series Data
 
 At this point you may be wondering what exactly we are supposed to do with the convoluted string of numbers and characters in the air quality data's `datetime` field.
 
@@ -558,7 +574,7 @@ Our key takeaways from this section:
 
 As a result or as part of data wrangling operations, you may need to rename columns or renumber the rows in a dataframe.
 
-## Renaming columns
+## Renaming Columns
 
 We can use `.rename()` to rename columns in a dataframe.
 
