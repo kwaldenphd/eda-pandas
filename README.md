@@ -172,6 +172,8 @@ titanic.groupby("Pclass")["Pclass"].count()
 - `.groupby()` follows a `split-apply-combine` pattern
 - `.value_counts()` can be a shorthand for getting the number of entries for each category in a field
 
+<blockquote>Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.</blockquote>
+
 ## Creating New Columns Based on Existing Columns
 
 35. Let's introduce a new sample dataset, this time with air quality data for measurement stations in London, Paris, and Antwerp.
@@ -223,6 +225,10 @@ air_quality.head()
 46. Again, because this is an element-wise calculation, the division operation is applied to all rows in the data frame.
 
 47. Python's other mathematical (`+`, `-`, `*`, `/`) and logical (`<`, `>`, `=`, etc.) all work element-wise.
+
+<blockquote>Q2: Describe element-wise calculation in your own words.</blockquote>
+
+<blockquote>Q3: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.</blockquote>
 
 # Manipulating and Reshaping Data
 
@@ -436,6 +442,12 @@ stacked_data_frame.unstack()
 unstacked_data_frame.stack()
 ```
 
+<blockquote>Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().</blockquote>
+
+<blockquote>Q5: Write sample code for both functions. Include code + comments.</blockquote>
+
+<blockquote>Q6: Describe how you are thinking about needing to use these functions in relation to data you're interested in working with as part of the final project.</blockquote>
+
 # Combining Data
 
 98. The SQL queries and joins lab covered how we can use joins in a relational database system to create new data structures.
@@ -588,6 +600,12 @@ air_quality.head()
 - Mutliple tables can be concatenated row-rise or column-wise using the `.concat()` function
 - SQL-style joins can be accomplished using `.merge()`
 
+<blockquote>Q7: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?</blockquote>
+
+<blockquote>Q8: Write sample code for both functions. Include code + comments.</blockquote>
+
+<blockquote>Q9: Describe how you are thinking about needing to use these functions for the data you plan to work with in the final project.</blockquote>
+
 # Renaming, Mapping, and Reindexing
 
 133. As a result or as part of data wrangling operations, you may need to rename columns or renumber the rows in a dataframe.
@@ -653,4 +671,21 @@ data_frame.reset_index()
 
 # Lab Notebook Questions
 
-No notebook questions--something with final project.
+<blockquote>Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.</blockquote>
+
+<blockquote>Q2: Describe element-wise calculation in your own words.</blockquote>
+
+<blockquote>Q3: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.</blockquote>
+
+<blockquote>Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().</blockquote>
+
+<blockquote>Q5: Write sample code for both functions. Include code + comments.</blockquote>
+
+<blockquote>Q6: Describe how you are thinking about needing to use these functions in relation to data you're interested in working with as part of the final project.</blockquote>
+
+<blockquote>Q7: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?</blockquote>
+
+<blockquote>Q8: Write sample code for both functions. Include code + comments.</blockquote>
+
+<blockquote>Q9: Describe how you are thinking about needing to use these functions for the data you plan to work with in the final project.</blockquote>
+
