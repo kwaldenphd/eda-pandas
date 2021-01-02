@@ -25,6 +25,8 @@ Information and exercises in this lab are adapted from the following resources:
   * Chapter 7 "Data Cleaning and Preparation" (195-224)
   * Chapter 8 "Data Wrangling: Join, Combine, and Reshape" (225-256)
   * Chapter 10 "Data Aggregation and Group Operations" (293-322)
+  
+All figures shown in this lab are from the `pandas` "Getting Started" tutorials.
 
 # Table of Contents
 
@@ -109,7 +111,7 @@ titanic[["Sex", "Age"]].groupby("Sex").mean()
 
 17. Then we apply the `.groupby()` method to the `Sex` column to calculate `.mean()` for each unique value represented in the `Sex` field.
 
-FIGURE 1
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_1.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_1.svg?raw=true" /></a></p>
 
 18. Generally speaking, this type of `pandas` operation follows a `split-apply-combine` pattern.
 - First we `split` the data into groups.
@@ -123,7 +125,7 @@ FIGURE 1
 titanic.groupby("Sex")["Age"].mean()
 ```
 
-FIGURE 2
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true" /></a></p>
 
 21. In this alternate example, the column name in the `.groupby()` parenthesis specifies the column to group by.
 
@@ -192,7 +194,7 @@ air_quality.head()
 
 40. And we would want to store the results of that calculation in a newly-created column.
 
-FIGURE 2
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true" /></a></p>
 
 To express those steps programatically in Python:
 ```Python
@@ -209,7 +211,7 @@ air_quality.head()
 
 44. We would need to calculate the ratio for each row and store the results of the calculation in a new column.
 
-FIGURE 3
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_3.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_3.svg?raw=true" /></a></p>
 
 45. To express those steps programatically in Python:
 ```Python
@@ -319,7 +321,7 @@ no2_subset
 
 68. Let's imagine we want the three station values for <code>NO<sub>2</sub></code> to appear as adjacent columns.
 
-FIGURE 4
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_4.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_4.svg?raw=true" /></a></p>
 
 69. We can accomplish this transformation using the `.pivot()` function.
 ```Python
@@ -330,7 +332,7 @@ no2_subset.pivot(columns="location", values="value")
 
 71. Another example of `.pivot()`:
 
-FIGURE 5
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_5.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_5.svg?raw=true" /></a></p>
 
 72. We create a new data frame in which the unique values in `foo` our row index, and the `bar` categories our columns.
 
@@ -390,7 +392,7 @@ no_2.head()
 
 86. For example, let's say we want the concentrations for <code>NO<sub>2</sub></code> and <code>PM<sub>2.5</sub></code> for each station stored as a table.
 
-FIGURE 9
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_9.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_9.svg?raw=true" /></a></p>
 
 87. We can create a pivot table that is based on the underlying dataframe to display these aggregate calculations.
 
@@ -418,7 +420,7 @@ air_quality.groupby(["parameter", "location"]).mean()
 
 94. We can do this using `.stack()` and `.unstack()`.
 
-FIGURE 6
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_6.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_6.svg?raw=true" /></a></p>
 
 95. To reshape this data using `.stack()`:
 ```Python
@@ -427,7 +429,7 @@ stacked_data_frame.unstack()
 
 96. `.unstack()` is the inverse operation of `.stack()`.
 
-FIGURE 7
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_7.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_7.svg?raw=true" /></a></p>
 
 97. To reshape this data using `.unstack()`:
 ```Python
@@ -491,7 +493,7 @@ air_quality_parameters.head()
 
 106. Since the two original tables have a similar strucure, we can perform a concatenation operation on multiple tables using one of the axes.
 
-FIGURE 10
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_10.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_10.svg?raw=true" /></a></p>
 
 107. We can do this using the `.contact()` function.
 ```Python
@@ -547,7 +549,7 @@ air_quality_.head()
 
 121. We have this data loaded as `stations_coord`.
 
-FIGURE 11
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_11.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_11.svg?raw=true" /></a></p>
 
 122. We can merge the `stations_coord` and `air_quality` data frames based on a common field, `location`.
 
