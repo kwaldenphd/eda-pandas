@@ -60,7 +60,7 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials.
 titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/titanic.csv)
 
 # show first 5 rows of newly-loaded dataframe
-titanic.head(5)
+display(titanic.head(5))
 
 # calculate mean
 titanic["Age"].mean()
@@ -187,7 +187,7 @@ titanic.groupby("Pclass")["Pclass"].count()
 air_quality = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv", index_col=0, parse_dates=True)
 
 # show first 5 rows of newly-loaded dataframe
-air_quality.head()
+display(air_quality.head())
 ```
 
 37. Let's say we wanted to express the London station's <code>NO<sub>2</sub></code> concentration as milligrams per cubic meter (mg/m<sup>3</sup>).
@@ -202,7 +202,7 @@ air_quality.head()
 ```Python
 air_quality["london_mg_per_cubic"] = air_quality["station_london"] * 1.882
 
-air_quality.head()
+display(air_quality.head())
 ```
 
 41. Note that we do not need to iterate over all rows for a specific dataframe column to perform this calculation.
@@ -219,7 +219,7 @@ air_quality.head()
 ```Python
 air_quality["ratio_paris_antwerp"] = (air_quality["station_paris"] / air_quality["station_antwerp"])
 
-air_quality.head()
+display(air_quality.head())
 ```
 
 46. Again, because this is an element-wise calculation, the division operation is applied to all rows in the data frame.
@@ -379,14 +379,14 @@ old_data_frame.melt(id_vars=['first_identifier_variable_column', 'second_identif
 no2_pivoted = no2.pivot(columns="location", values="value").reset_index()
 
 # verify wide data
-no2_pivoted.head()
+display(no2_pivoted.head())
 ```
 
 82. We can transform our pivoted wide data back into a long data format using `.melt()`.
 ```Python
 no_2 = no2_pivoted.melt(id_vars="date.utc")
 
-no_2.head()
+display(no_2.head())
 ```
 
 83. In this example, the column headers become variable names in a newly-created column.
@@ -476,7 +476,7 @@ air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-
 air_quality_no2 = air_quality_no2[["data.utc", "location", "parameter", "value"]]
 
 # make sure columns are renamed and no2 data is loaded
-air_quality_no2.head()
+display(air_quality_no2.head())
 
 # load pm25 data
 air_quality_pm25 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_pm25_long.csv", parse_dates=True)
@@ -485,19 +485,19 @@ air_quality_pm25 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda
 air_quality_pm25 = air_quality_pm25[["data.utc", "location", "parameter", "value"]]
 
 # make sure columns are renamed and pm25 data is loaded
-air_quality_pm25.head()
+display(air_quality_pm25.head())
 
 # load coordinates data
 stations_coord = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_stations.csv")
 
 # make sure coordinate data is loaded
-stations_coord.head()
+display(stations_coord.head())
 
 # load parameter data
 air_quality_parameters = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_parameters.csv")
 
 # make sure parameter data is loaded
-air_quality_parameters.head()
+display(air_quality_parameters.head())
 ```
 
 ## `.concat()`
@@ -512,14 +512,14 @@ air_quality_parameters.head()
 ```Python
 air_quality = pd.concat([air_quality_pm25, air_quality_no2], axis=0)
 
-air_quality.head()
+display(air_quality.head())
 ```
 
 108. The default for `.concat()` is axis 0, so the resulting table combines the input table rows.
 
 109. Remember in a `pandas` dataframe axis `0` is vertical (rows) and axis `1` is horizontal (columns).
 
-110. We can verify the concatenation operation worked by checking the same of each original table and the concatenated table.
+110. We can verify how the concatenation operation worked by checking the same of each original table and the concatenated table.
 ```Python
 print('Shape of the ``air_quality_pm25`` table: ', air_quality_pm25.shape)
 
@@ -528,13 +528,13 @@ print('Shape of the ``air_quality_no2`` table: ', air_quality_no2.shape)
 print('Shape of the resulting ``air_quality`` table: ', air_quality.shape)
 ```
 
-111. Some fast math tells us that 1110 + 2068 is 3178, the number of rows in the combined table.
+111. Some fast math tells us that 1110 + 5272 is 6382, the number of rows in the combined table.
 
 112. We can sort the new table to see the combined data.
 ```Python
 air_quality = air_quality.sort_values("date.utc")
 
-air_quality.head()
+display(air_quality.head())
 ```
 
 113. The data sorted by `data.utc` shows observations for both NO<sub>2</sub> and PM<sub>25</sub>.
@@ -545,7 +545,7 @@ air_quality.head()
 ```Python
 air_quality_ = pd.concat([air_quality_pm25, air_quality_no2], keys=["PM25", "NO2"])
 
-air_quality_.head()
+display(air_quality_.head())
 ```
 
 116. By giving a `keys` argument to the `.concat()` function, we create a hierarchical index or a MultiIndex.
@@ -570,7 +570,7 @@ air_quality_.head()
 ```Python
 air_quality = pd.merge(air_quality, stations_coord, how="left", on="location")
 
-air_quality.head()
+display(air_quality.head())
 ```
 
 124. You might notice some similarities with SQL join syntax, in that we're are specifying the origin and target tables, the type of join, and the key field.
@@ -590,7 +590,7 @@ air_quality.head()
 ```Python
 air_quality = pd.merge(air_quality, air_quality_parameters, how='left', left_on='parameter', right_on='id')
 
-air_quality.head()
+display(air_quality.head())
 ```
 
 131. For more on different join/merge types:
@@ -621,14 +621,14 @@ air_quality.head()
 ```Python
 data_frame.rename(columns={"old_name_1": "new_name_1", "old_name_2": "new_name_2", "old_name_3": "new_name_3"})
 
-data_frame.head()
+display(data_frame.head())
 ```
 
 137. We can also create a new dataframe with the renamed columns.
 ```Python
 new_data_frame = old_data_frame.rename(columns={"old_name_1": "new_name_1", "old_name_2": "new_name_2", "old_name_3": "new_name_3"})
 
-new_data_frame.head()
+display(new_data_frame.head())
 ```
 
 138. We can also standardize axis labels using `str` case methods (`upper`, `lower`, `title`, etc.)
