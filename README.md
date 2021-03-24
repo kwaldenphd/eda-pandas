@@ -246,7 +246,7 @@ display(air_quality.head())
 air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv", parse_dates=True)
 
 # set column names
-air_quality_no2 = air_quality_no2[["data.utc", "location", "parameter", "value"]]
+air_quality_no2 = air_quality_no2[["date.utc", "location", "parameter", "value"]]
 
 # make sure columns are renamed and no2 data is loaded
 display(air_quality_no2.head())
@@ -273,7 +273,7 @@ display(air_quality_no2.head())
 56. We can use the `.to_datetime()` function to convert this field to a datetime object.
 
 ```Python
-air_quality_no2["datetime"] = pd.to_datetime(air_quality_no2["datetime"])
+air_quality_no2["datetime"] = pd.to_datetime(air_quality_no2["date.utc"])
 
 # check column data type
 air_quality_no2["datetime"]
@@ -292,7 +292,7 @@ air_quality_no2["datetime"].max() - air_quality_no2["datetime"].min()
 58. If we know we are loading data with a datatime like field, we can specify how `pandas` should parse the datetime field in the newly-created data frame using `parse_dates`.
 
 ```Python
-pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv", parse_dates=["datetime"])
+pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv", parse_dates=["date.utc"])
 ```
 
 59. For more on datatime objects and time series data in Python:
