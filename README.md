@@ -174,7 +174,7 @@ titanic.groupby("Pclass")["Pclass"].count()
 - `.groupby()` follows a `split-apply-combine` pattern
 - `.value_counts()` can be a shorthand for getting the number of entries for each category in a field
 
-<blockquote>Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.</blockquote>
+<blockquote>Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics. Include code + comments for each.</blockquote>
 
 ## Creating New Columns Based on Existing Columns
 
@@ -685,7 +685,7 @@ data_frame.reset_index()
 
 # Lab Notebook Questions
 
-Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.
+Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics. Include code + comments for each.
 
 Q2: Describe element-wise calculation in your own words.
 
