@@ -352,7 +352,7 @@ no2_subset.pivot(columns="location", values="value")
 
 71. Another example of `.pivot()`:
 
-<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_4.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_4.svg?raw=true" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_5.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_5.png?raw=true" /></a></p>
 
 72. We create a new data frame in which the unique values in `foo` our row index, and the `bar` categories our columns.
 
