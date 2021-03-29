@@ -444,7 +444,7 @@ air_quality.groupby(["parameter", "location"]).mean()
 
 95. To reshape this data using `.stack()`:
 ```Python
-stacked_data_frame.unstack()
+unstacked_data_frame.stack()
 ```
 
 96. `.unstack()` is the inverse operation of `.stack()`.
@@ -453,12 +453,12 @@ stacked_data_frame.unstack()
 
 97. To reshape this data using `.unstack()`:
 ```Python
-unstacked_data_frame.stack()
+stacked_data_frame.unstack()
 ```
 
 <blockquote>Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().</blockquote>
 
-<blockquote>Q5: Write sample code for each of these functions. Include code + comments.</blockquote>
+<blockquote>Q5: Write sample code for at least two of these functions. Include code + comments.</blockquote>
 
 <blockquote>Q6: Describe how you are thinking about needing to use these functions in relation to data you're interested in working with as part of the final project.</blockquote>
 
@@ -693,7 +693,7 @@ Q3: Using the air quality data or another dataset, write code that generates a n
 
 Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().
 
-Q5: Write sample code for each of these functions. Include code + comments.
+Q5: Write sample code for at least two of these functions. Include code + comments.
 
 Q6: Describe how you are thinking about needing to use these functions in relation to data you're interested in working with as part of the final project.
 
