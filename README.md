@@ -1,4 +1,4 @@
-# Exploratory Data Analysis Using Pandas
+# Data Wrangling in Pandas
 
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
@@ -14,10 +14,6 @@ By the end of this lab, students will be able to:
 - Combining and joining datasets using `concat` and `merge`
 - Understand the basics of renaming, mapping, and reindexing structured data in Python using `pandas`
 
-[Click here](https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/eda-pandas.ipynb) and select "Save as" to download this lab as a Jupyter Notebook.
-
-[Link to lab overview video](https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f9dfe590-7851-477c-ab43-ace100f0ac9f) (Panopto, ND users).
-
 ## Acknowledgements
 
 Information and exercises in this lab are adapted from the following resources:
@@ -32,6 +28,8 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials.
 
 # Table of Contents
 
+- [Lab Notebook Template](#lab-notebook-template)
+- [Data](#data)
 - [Summary Statistics and Calculations](#summary-statistics-and-calculations)
   * [Creating New Columns Based on Existing Columns](#creating-new-columns-based-on-existing-columns)
 - [Manipulating and Reshaping Data](#manipulating-and-reshaping-data)
@@ -45,8 +43,77 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials.
   * [`.merge()`](#merge)
 - [Renaming, Mapping, and Reindexing](#renaming-mapping-and-reindexing)
   * [Renaming Columns](#renaming-columns)
-- [Practice Problems](#practice-problems)
 - [Lab Notebook Questions](#lab-notebook-questions)  
+
+[Link to access lab procedure as a Jupyter Notebook](https://drive.google.com/file/d/1BBgDo9F9GT9zrPAu9NTESqvr45exODjv/view?usp=sharing)
+
+# Lab Notebook Template
+
+[Link to lab notebook template (Jupyter Notebook)](https://drive.google.com/file/d/1HeHBDEPGzLKpU62WQ1XTHGPWgY0plXDC/view?usp=sharing)
+
+# Data
+
+The following data files are used in this tutorial, with Google Drive links (ND users only) provided below:
+
+- [`air_quality_long.csv`](https://drive.google.com/file/d/1EuxBBHt3CGHwmo1BSnYQJE4jNWZvCkYE/view?usp=sharing)
+- [`air_quality_no2_long.csv`](https://drive.google.com/file/d/1kiaoN3X77AiDvp6_HTOQHStkXF0GkxBb/view?usp=sharing)
+- [`air_quality_no2.csv`](https://drive.google.com/file/d/1TY1sFXIcUfc1gVKKP47duNbY2dgk8Eda/view?usp=sharing)
+- [`air_quality_parameters.csv`](https://drive.google.com/file/d/1Dk81jCQZKLo8h51MPYye8aOkIqvC07yf/view?usp=sharing)
+- [`air_quality_pm25_long.csv`](https://drive.google.com/file/d/1CCd_mDQCXT1ThDphkcCSJpOR_ekZtTLO/view?usp=sharing)
+- [`air_quality_stations.csv`](https://drive.google.com/file/d/1H5cgILqFkQ9NlQdvjs0UWsJ0Mec-4Nmd/view?usp=sharing)
+- [`titanic.csv`](https://drive.google.com/file/d/1JDdM48mBYoH3JXC1HodXFq08kFOo_UBu/view?usp=sharing)
+
+You can also download the files in a compressed folder (`.zip`) [via Google Drive](https://drive.google.com/file/d/1sViAVYdgh2VfCuv0aiQvhLZjWHsCcPOy/view?usp=sharing).
+
+We can load this data in Python from GitHub URLs, rather than having to download files to our local computer (or upload to Google CoLab):
+
+```Python
+# load titanic data from url
+titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/titanic.csv)
+
+# load air quality data from url
+air_quality = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv", index_col=0, parse_dates=True)
+
+# load no2 observation data (long) from url
+air_quality_no2_long = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2_long.csv", parse_dates=True)
+
+# load no2 air quality data from url
+air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv")
+
+# load pm25 data from url
+air_quality_pm25 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_pm25_long.csv", parse_dates=True)
+
+# load coordinates data from url
+stations_coord = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_stations.csv")
+
+# load parameter data from url
+air_quality_parameters = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_parameters.csv")
+```
+
+We can also load the files using file names.
+
+```Python
+# load titanic data from file
+titanic = pd.read_csv("titanic.csv")
+
+# load air quality data from file
+air_quality = pd.read_csv("air_quality_no2.csv", index_col=0, parse_dates=True)
+
+# load no2 observation data (long) from file
+air_quality_no2_long = pd.read_csv("air_quality_no2_long.csv", parse_dates=True)
+
+# load no2 air quality data from file
+air_quality_no2 = pd.read_csv("air_quality_no2.csv")
+
+# load pm25 data from file
+air_quality_pm25 = pd.read_csv("air_quality_pm25_long.csv", parse_dates=True)
+
+# load coordinates data from file
+stations_coord = pd.read_csv("air_quality_stations.csv")
+
+# load parameter data from file
+air_quality_parameters = pd.read_csv("air_quality_parameters.csv")
+```
 
 # Summary Statistics and Calculations
 
@@ -55,9 +122,13 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials.
 2. Most of these mathematical methods fall under the umbrella of summary statistics.
 
 3. We could use `.mean()` to get the average age of Titanic passengers.
+
 ```Python
 # load titanic data from url
-titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/titanic.csv)
+# titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/titanic.csv)
+
+# load data from file
+# titanic = pd.read_csv("titanic.csv")
 
 # show first 5 rows of newly-loaded dataframe
 display(titanic.head(5))
@@ -68,6 +139,7 @@ titanic["Age"].mean()
 
 4. We could also calculate the median age and ticket fare using `.median()`.
 ```Python
+# median age and ticket fare
 titanic[["Age", "Fare"]].median()
 ```
 
@@ -75,6 +147,7 @@ titanic[["Age", "Fare"]].median()
 
 6. In a situation where missing data or `NaN` values need to be part of the calculation, we would set `skipna` to `False`.
 ```Python
+# skip NA rows
 titanic.sum(axis=0, skipna=True)
 ```
 
@@ -92,6 +165,7 @@ titanic.sum(axis=0, skipna=True)
 
 12. We can specify those statistics and those columns using `.agg()`.
 ```Python
+# calculate summary statistics using .agg()
 titanic.agg(
   {
     "Age": ["min", "max", "median", "skew"],
@@ -106,6 +180,7 @@ titanic.agg(
 
 15. To find out the average age for female versus male passengers:
 ```Python
+# average age grouped by gender
 titanic[["Sex", "Age"]].groupby("Sex").mean()
 ```
 
@@ -124,6 +199,7 @@ titanic[["Sex", "Age"]].groupby("Sex").mean()
 
 20. Another way to calculate average age by gender:
 ```Python
+# average age grouped by gender
 titanic.groupby("Sex")["Age"].mean()
 ```
 
@@ -142,6 +218,7 @@ titanic.groupby("Sex")["Age"].mean()
 
 25. To express that programatically in Python:
 ```Python
+# average fare grouped by gender and passenger class
 titanic.groupby(["Sex", "Pclass"])["Fare"].mean()
 ```
 
@@ -159,11 +236,13 @@ titanic.groupby(["Sex", "Pclass"])["Fare"].mean()
 
 32. To express that progrmatically in Python:
 ```Python
+# number of values in Pclass column
 titanic["Pclass"].value_counts()
 ```
 
 32. We could also break out these steps using a combination of `.groupby()` and `.count()`:
 ```Python
+# number of Pclass column values, grouped by unique PClass values
 titanic.groupby("Pclass")["Pclass"].count()
 ```
 
@@ -184,7 +263,10 @@ titanic.groupby("Pclass")["Pclass"].count()
 
 ```Python
 # load air quality data from url
-air_quality = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv", index_col=0, parse_dates=True)
+# air_quality = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv", index_col=0, parse_dates=True)
+
+# load data from file
+# air_quality = pd.read_csv("air_quality_no2.csv", index_col=0, parse_dates=True)
 
 # show first 5 rows of newly-loaded dataframe
 display(air_quality.head())
@@ -200,8 +282,10 @@ display(air_quality.head())
 
 40. To express those steps programatically in Python:
 ```Python
+# createw new column from arithmetic calculation
 air_quality["london_mg_per_cubic"] = air_quality["station_london"] * 1.882
 
+# show updated dataframe
 display(air_quality.head())
 ```
 
@@ -217,8 +301,10 @@ display(air_quality.head())
 
 45. To express those steps programatically in Python:
 ```Python
+# create new column with calculation result
 air_quality["ratio_paris_antwerp"] = (air_quality["station_paris"] / air_quality["station_antwerp"])
 
+# show updated dataframe
 display(air_quality.head())
 ```
 
@@ -243,13 +329,16 @@ display(air_quality.head())
 
 ```Python
 # load no2 observation data
-air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv", parse_dates=True)
+# air_quality_no2_long = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2_long.csv", parse_dates=True)
+
+# load data from file
+# air_quality_no2_long = pd.read_csv("air_quality_no2_long.csv", parse_dates=True)
 
 # set column names
-air_quality_no2 = air_quality_no2[["date.utc", "location", "parameter", "value"]]
+air_quality_no2_long = air_quality_no2_long[["date.utc", "location", "parameter", "value"]]
 
 # make sure columns are renamed and no2 data is loaded
-display(air_quality_no2.head())
+display(air_quality_no2_long.head())
 ```
 
 51. At this point you may be wondering what exactly we are supposed to do with the convoluted string of numbers and characters in the `datetime` field for the `air_quality_no2_long` file.
@@ -273,26 +362,31 @@ display(air_quality_no2.head())
 56. We can use the `.to_datetime()` function to convert this field to a datetime object.
 
 ```Python
-air_quality_no2["datetime"] = pd.to_datetime(air_quality_no2["date.utc"])
+# convert data.utc column to datatime object
+air_quality_no2_long["datetime"] = pd.to_datetime(air_quality_no2_long["date.utc"])
 
 # check column data type
-air_quality_no2["datetime"]
+air_quality_no2_long["datetime"]
 ```
 
 57. Now that we have the `datatime` field as a datatime object, we can access a number of specialized commands.
 
 ```Python
 # identify start and end times for time series data
-air_quality_no2["datetime"].min(), air_quality_no2["datetime"].max()
+air_quality_no2_long["datetime"].min(), air_quality_no2_long["datetime"].max()
 
 # calculate length of time series
-air_quality_no2["datetime"].max() - air_quality_no2["datetime"].min()
+air_quality_no2_long["datetime"].max() - air_quality_no2_long["datetime"].min()
 ```
 
 58. If we know we are loading data with a datatime like field, we can specify how `pandas` should parse the datetime field in the newly-created data frame using `parse_dates`.
 
 ```Python
-pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv", parse_dates=["date.utc"])
+# load from url
+air_quality_no2_long = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2_long.csv", parse_dates=["date.utc"])
+
+# load data from file
+# air_quality_no2_long = pd.read_csv("air_quality_no2_long.csv", parse_dates=["date.utc"])
 ```
 
 59. For more on datatime objects and time series data in Python:
@@ -326,11 +420,14 @@ pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/a
 67. To express that programatically in Python:
 
 ```Python
-# load data
-air_quality = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv")
+# load data from url
+# air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv")
+
+# load from file
+# air_quality_no2 = pd.read_csv("air_quality_no2.csv")
 
 # create subset with only no2 data
-no2 = air_quality[air_quality["parameter"] == "no2"]
+no2 = air_quality_no2[air_quality_no2["parameter"] == "no2"]
 
 # group by station locations
 no2_subset = no2.sort_index().groupby(["location"]).head(2)
@@ -344,7 +441,9 @@ no2_subset
 <p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_4.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_4.svg?raw=true" /></a></p>
 
 69. We can accomplish this transformation using the `.pivot()` function.
+
 ```Python
+# pivot values based on location
 no2_subset.pivot(columns="location", values="value")
 ```
 
@@ -357,6 +456,7 @@ no2_subset.pivot(columns="location", values="value")
 72. We create a new data frame in which the unique values in `foo` our row index, and the `bar` categories our columns.
 
 ```Python
+# sample syntax for pivot
 new_data_frame = old_data_frame.pivot(index="foo", columns="bar", values="baz")
 ```
 
@@ -378,15 +478,18 @@ new_data_frame = old_data_frame.pivot(index="foo", columns="bar", values="baz")
 
 79. We can use `.melt()` to transform this data so each row is a unique observation.
 ```Python
+# sample syntax for melt
 old_data_frame.melt(id_vars=['first_identifier_variable_column', 'second_identifier_variable_column'])
 ```
 
 80. We could also rename this newly-created identifier variable column:
 ```Python
+# sample syntax for melt
 old_data_frame.melt(id_vars=['first_identifier_variable_column', 'second_identifier_variable_column'], var_name="new_identifier_variable_column_name")
 ```
 
 81. Applying this to our air quality data, we can take the wide table format created by `.pivot()` and transform it back into a long data format using `.melt()`.
+
 ```Python
 # create wide data format
 no2_pivoted = no2.pivot(columns="location", values="value").reset_index()
@@ -397,8 +500,10 @@ display(no2_pivoted.head())
 
 82. We can transform our pivoted wide data back into a long data format using `.melt()`.
 ```Python
+# pivot no2 data based on date
 no_2 = no2_pivoted.melt(id_vars="date.utc")
 
+# show updated dataframe
 display(no_2.head())
 ```
 
@@ -420,11 +525,13 @@ display(no_2.head())
 
 89. To express this programatically in Python:
 ```Python
+# create pivot table based on location and mean values
 air_quality.pivot_table(values="value", index="location", columns="parameter", aggfunc="mean")
 ```
 
 90. We could also use `.groupby()` and `.mean()` to generate the same output.
 ```Python
+# show mean grouped by location and parameter
 air_quality.groupby(["parameter", "location"]).mean()
 ```
 
@@ -444,7 +551,8 @@ air_quality.groupby(["parameter", "location"]).mean()
 
 95. To reshape this data using `.stack()`:
 ```Python
-unstacked_data_frame.stack()
+# sample syntax for stack
+stacked_df.stack()
 ```
 
 96. `.unstack()` is the inverse operation of `.stack()`.
@@ -453,14 +561,15 @@ unstacked_data_frame.stack()
 
 97. To reshape this data using `.unstack()`:
 ```Python
-stacked_data_frame.unstack()
+# sample syntax for unstack
+unstacked_df.unstack()
 ```
 
 <blockquote>Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().</blockquote>
 
-<blockquote>Q5: Write sample code for at least two of these functions. Include code + comments.</blockquote>
+<blockquote>Q5: Write sample code for at least two of the functions listed in Q4. Include code + comments.</blockquote>
 
-<blockquote>Q6: Describe how you are thinking about needing to use these functions in relation to data you're interested in working with as part of the final project.</blockquote>
+<blockquote>Q6: Describe how you are thinking about needing to use the Q4 functions in relation to data you're interested in working with as part of the final project.</blockquote>
 
 # Combining Data
 
@@ -474,40 +583,59 @@ stacked_data_frame.unstack()
 
 102. `combine_first` allows you to splice overlapping data to fill in missing values.
 
-103. Let's load more new air quality datasets.
+103. Let's work with some additional air quality datasets.
 - The `air_quality_no2_long.csv` file provies NO<sub>2</sub> values for three measurement stations.
 - The `air_quality_pm25_long.csv` file provides PM<sub>25</sub> values (particulate matter less than 2.5 micrometers) for the same three measurement stations.
 - The `air_quality_stations.csv` file provides latitude and longitude coordinates for five different measurement stations.
 - The `air_quality_parameters.csv` file provides parameter full description and name for five different element types.
 
 104. To load these datasets:
+
 ```Python
-# load no2 observation data
-air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv", parse_dates=True)
+# load no2 observation data from url
+# air_quality_no2_long = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2_long.csv", parse_dates=True)
+
+# load no2 observation data from file 
+# air_quality_no2_long = pd.read_csv("air_quality_no2_long.csv", parse_dates=True)
 
 # set column names
-air_quality_no2 = air_quality_no2[["data.utc", "location", "parameter", "value"]]
+air_quality_no2_long = air_quality_no2_long[["data.utc", "location", "parameter", "value"]]
 
 # make sure columns are renamed and no2 data is loaded
-display(air_quality_no2.head())
+display(air_quality_no2_long.head())
+```
 
-# load pm25 data
-air_quality_pm25 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_pm25_long.csv", parse_dates=True)
+```Python
+# load pm25 data from url
+# air_quality_pm25 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_pm25_long.csv", parse_dates=True)
+
+# load pm25 data from file
+# air_quality_pm25 = pd.read_csv("air_quality_pm25_long.csv", parse_dates=True)
 
 # rename columns
 air_quality_pm25 = air_quality_pm25[["data.utc", "location", "parameter", "value"]]
 
 # make sure columns are renamed and pm25 data is loaded
 display(air_quality_pm25.head())
+```
 
-# load coordinates data
+```Python
+# load coordinates data from url
 stations_coord = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_stations.csv")
+
+# load coordinates data from file
+# stations_coord = pd.read_csv("air_quality_stations.csv")
 
 # make sure coordinate data is loaded
 display(stations_coord.head())
+```
 
-# load parameter data
+```Python
+# load parameter data from url
 air_quality_parameters = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_parameters.csv")
+
+# load parameter data from file
+# air_quality_parameters = pd.read_csv("air_quality_parameters.csv")
 
 # make sure parameter data is loaded
 display(air_quality_parameters.head())
@@ -523,9 +651,11 @@ display(air_quality_parameters.head())
 
 107. We can do this using the `.contact()` function.
 ```Python
-air_quality = pd.concat([air_quality_pm25, air_quality_no2], axis=0)
+# concatenate based on common column structure
+air_quality_concat = pd.concat([air_quality_pm25, air_quality_no2], axis=0)
 
-display(air_quality.head())
+# show updated dataframe
+display(air_quality_concat.head())
 ```
 
 108. The default for `.concat()` is axis 0, so the resulting table combines the input table rows.
@@ -534,20 +664,23 @@ display(air_quality.head())
 
 110. We can verify how the concatenation operation worked by checking the same of each original table and the concatenated table.
 ```Python
+# show table dimensions/shapes
 print('Shape of the ``air_quality_pm25`` table: ', air_quality_pm25.shape)
 
 print('Shape of the ``air_quality_no2`` table: ', air_quality_no2.shape)
 
-print('Shape of the resulting ``air_quality`` table: ', air_quality.shape)
+print('Shape of the resulting ``air_quality`` table: ', air_quality_concat.shape)
 ```
 
 111. Some fast math tells us that 1110 + 5272 is 6382, the number of rows in the combined table.
 
 112. We can sort the new table to see the combined data.
 ```Python
-air_quality = air_quality.sort_values("date.utc")
+# sort new df by date
+air_quality_concat = air_quality_concat.sort_values("date.utc")
 
-display(air_quality.head())
+# show updated df
+display(air_quality_concat.head())
 ```
 
 113. The data sorted by `data.utc` shows observations for both NO<sub>2</sub> and PM<sub>25</sub>.
@@ -556,9 +689,11 @@ display(air_quality.head())
 
 115. In a situation where we don't have something like the `parameter` column, we can add an additional row index can help identify the data source.
 ```Python
-air_quality_ = pd.concat([air_quality_pm25, air_quality_no2], keys=["PM25", "NO2"])
+# concatenate based on PM25 and NO2 keys
+air_quality_concat2 = pd.concat([air_quality_pm25, air_quality_no2], keys=["PM25", "NO2"])
 
-display(air_quality_.head())
+# show updated dataframe
+display(air_quality_concat2.head())
 ```
 
 116. By giving a `keys` argument to the `.concat()` function, we create a hierarchical index or a MultiIndex.
@@ -581,9 +716,11 @@ display(air_quality_.head())
 
 123. To express this programatically in Python
 ```Python
-air_quality = pd.merge(air_quality, stations_coord, how="left", on="location")
+# merge based on location
+air_quality_merged = pd.merge(air_quality, stations_coord, how="left", on="location")
 
-display(air_quality.head())
+# show updated dataframe
+display(air_quality_merged.head())
 ```
 
 124. You might notice some similarities with SQL join syntax, in that we're are specifying the origin and target tables, the type of join, and the key field.
@@ -601,9 +738,11 @@ display(air_quality.head())
 130. We can use the `left_on` and `right_on` arguments to specify the fields to join on.
 
 ```Python
-air_quality = pd.merge(air_quality, air_quality_parameters, how='left', left_on='parameter', right_on='id')
+# merge based on parameter and id columns
+air_quality_merged2 = pd.merge(air_quality, air_quality_parameters, how='left', left_on='parameter', right_on='id')
 
-display(air_quality.head())
+# show merged df
+display(air_quality_merged2.head())
 ```
 
 131. For more on different join/merge types:
@@ -614,11 +753,11 @@ display(air_quality.head())
 - Mutliple tables can be concatenated row-rise or column-wise using the `.concat()` function
 - SQL-style joins can be accomplished using `.merge()`
 
-<blockquote>Q7: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?</blockquote>
+<blockquote>Q7: In your own words, provide a description for the .concat() and .merge() functions. What do these functions do? How are they different?</blockquote>
 
-<blockquote>Q8: Write sample code for both functions. Include code + comments.</blockquote>
+<blockquote>Q8: Write sample code for both the .concat() and .merge() functions. Include code + comments.</blockquote>
 
-<blockquote>Q9: Describe how you are thinking about needing to use these functions for the data you plan to work with in the final project.</blockquote>
+<blockquote>Q9: Describe how you are thinking about needing to use the .concat() and .merge() functions for the data you plan to work with in the final project.</blockquote>
 
 # Renaming, Mapping, and Reindexing
 
@@ -632,15 +771,19 @@ display(air_quality.head())
 
 136. To do this in place and change the names in an existing dataframe:
 ```Python
+# sample syntax for renaming columns
 data_frame.rename(columns={"old_name_1": "new_name_1", "old_name_2": "new_name_2", "old_name_3": "new_name_3"})
 
+# show updated df
 display(data_frame.head())
 ```
 
 137. We can also create a new dataframe with the renamed columns.
 ```Python
+# sample syntax for creating new df with renamed columns
 new_data_frame = old_data_frame.rename(columns={"old_name_1": "new_name_1", "old_name_2": "new_name_2", "old_name_3": "new_name_3"})
 
+# show new df
 display(new_data_frame.head())
 ```
 
@@ -655,6 +798,7 @@ data_frame.rename(str.lower)
 
 139. We can also rename row index labels usign `.rename()`.
 ```Python
+# sample syntax for renaming columns using rename and a dictionary
 data_frame.rename({"old_row_1": "new_row_1", "old_row_2": "new_row_2", "old_row_3": "new_row_3"}, axis="index")
 ```
 
@@ -662,6 +806,7 @@ data_frame.rename({"old_row_1": "new_row_1", "old_row_2": "new_row_2", "old_row_
 
 141. To alter the underlying data, we would set the `inplace` parameter to `True`.
 ```Python
+# sample syntax for setting inplace parameter to True
 data_frame.rename(RENAMING OPERATION, inplace=True)
 ```
 
@@ -674,14 +819,11 @@ data_frame.rename(RENAMING OPERATION, inplace=True)
 145. In these situations, we can reset the index to a simple ascending integer index using `.reset_index()`.
 
 ```Python
+# sample syntax for resetting index
 data_frame.reset_index()
 ```
 
 146. For more on indexing, consult `pandas` ["Different choices for indexing"](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html?highlight=reindex#different-choices-for-indexing) documentation.
-
-# Practice Problems
-
-147. No practice problems. Spend this time working on the final project.
 
 # Lab Notebook Questions
 
@@ -691,14 +833,21 @@ Q2: Describe element-wise calculation in your own words.
 
 Q3: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.
 
-Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().
+Q4: In your own words, provide a brief description/explanation for each function: 
+  * `.pivot()`
+  * `.melt()`
+  * `.pivot_table()`
+  * `.stack()`
+  * `.unstack`
 
 Q5: Write sample code for at least two of these functions. Include code + comments.
+  * NOTE: This does not need to be functional code. Sample syntax is fine.
 
-Q6: Describe how you are thinking about needing to use these functions in relation to data you're interested in working with as part of the final project.
+Q6: Describe how you are thinking about needing to use the `.pivot()`, `.melt()`, `.pivot_table()`, `.stack()` or `.unstack` functions in relation to data you're interested in working with as part of the final project.
 
-Q7: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?
+Q7: In your own words, provide a description for the `.concat()` and `.merge()` functions. What do these functions do? How are they different?
 
-Q8: Write sample code for both concat and merge functions. Include code + comments.
+Q8: Write sample code for both the `.concat()` and `.merge()` functions. Include code + comments.
+  * NOTE: This does not need to be functional code. Sample syntax is fine.
 
-Q9: Describe how you are thinking about needing to use these functions for the data you plan to work with in the final project.
+Q9: Describe how you are thinking about needing to use the `.concat()` or `.merge()` functions with the data you plan to work with in the final project.
