@@ -68,6 +68,9 @@ You can also download the files in a compressed folder (`.zip`) [via Google Driv
 We can load this data in Python from GitHub URLs, rather than having to download files to our local computer (or upload to Google CoLab):
 
 ```Python
+# import pandas
+import pandas as pd
+
 # load titanic data from url
 titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/titanic.csv)
 
@@ -93,6 +96,9 @@ air_quality_parameters = pd.read_csv("https://raw.githubusercontent.com/kwaldenp
 We can also load the files using file names.
 
 ```Python
+# import pandas
+import pandas as pd
+
 # load titanic data from file
 titanic = pd.read_csv("titanic.csv")
 
@@ -567,7 +573,10 @@ unstacked_df.unstack()
 
 <blockquote>Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().</blockquote>
 
-<blockquote>Q5: Write sample code for at least two of the functions listed in Q4. Include code + comments.</blockquote>
+<blockquote>Q5: Write sample code for at least two of the functions listed in Q4. Include code + comments.
+<ul>
+<li>You <strong>do not</strong> need to write code that actually loads an existing data file. That is, the lab does not provide data files that include these structures/attributes.</li>
+<li>Write <strong>sample code</strong> that shows the syntax you would use to load a file with the structures/attributes described in the question.</li></ul></blockquote>
 
 <blockquote>Q6: Describe how you are thinking about needing to use the Q4 functions in relation to data you're interested in working with as part of the final project.</blockquote>
 
@@ -755,7 +764,9 @@ display(air_quality_merged2.head())
 
 <blockquote>Q7: In your own words, provide a description for the .concat() and .merge() functions. What do these functions do? How are they different?</blockquote>
 
-<blockquote>Q8: Write sample code for both the .concat() and .merge() functions. Include code + comments.</blockquote>
+<blockquote>Q8: Write sample code for both the .concat() and .merge() functions. Include code + comments.<ul>
+<li>You <strong>do not</strong> need to write code that actually loads an existing data file. That is, the lab does not provide data files that include these structures/attributes.</li>
+<li>Write <strong>sample code</strong> that shows the syntax you would use to load a file with the structures/attributes described in the question.</li></ul></blockquote>
 
 <blockquote>Q9: Describe how you are thinking about needing to use the .concat() and .merge() functions for the data you plan to work with in the final project.</blockquote>
 
@@ -827,6 +838,8 @@ data_frame.reset_index()
 
 # Lab Notebook Questions
 
+[Link to lab notebook template (Jupyter Notebook)](https://drive.google.com/file/d/1HeHBDEPGzLKpU62WQ1XTHGPWgY0plXDC/view?usp=sharing)
+
 Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics. Include code + comments for each.
 
 Q2: Describe element-wise calculation in your own words.
@@ -841,13 +854,15 @@ Q4: In your own words, provide a brief description/explanation for each function
   * `.unstack`
 
 Q5: Write sample code for at least two of these functions. Include code + comments.
-  * NOTE: This does not need to be functional code. Sample syntax is fine.
+  * You **do not** need to write code that actually loads an existing data file. That is, the lab does not provide data files that include these structures/attributes.
+  * Write **sample code** that shows the syntax you would use to load a file with the structures/attributes described in the question.
 
 Q6: Describe how you are thinking about needing to use the `.pivot()`, `.melt()`, `.pivot_table()`, `.stack()` or `.unstack` functions in relation to data you're interested in working with as part of the final project.
 
 Q7: In your own words, provide a description for the `.concat()` and `.merge()` functions. What do these functions do? How are they different?
 
 Q8: Write sample code for both the `.concat()` and `.merge()` functions. Include code + comments.
-  * NOTE: This does not need to be functional code. Sample syntax is fine.
+  * You **do not** need to write code that actually loads an existing data file. That is, the lab does not provide data files that include these structures/attributes.
+  * Write **sample code** that shows the syntax you would use to load a file with the structures/attributes described in the question.
 
 Q9: Describe how you are thinking about needing to use the `.concat()` or `.merge()` functions with the data you plan to work with in the final project.
