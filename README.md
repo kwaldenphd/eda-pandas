@@ -402,13 +402,13 @@ air_quality_no2_long = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd
 
 ## `.pivot()`
 
-60. Let's look at an alternate structure for the `air_quality` data.
+60. Let's look at an alternate structure for the `air_quality_no2` data.
 
 61. In `air_quality_no2.csv`, each row is a unique `datetime` and there are distinct columns for each station location.
 
-62. By comparison, navigate to https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/air_quality_long.csv in a web browser.
+62. By comparison, navigate to https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv in a web browser.
 
-63. This dataset includes the following variables or columns:
+63. The `air_quality_no2_longdataset includes the following variables or columns:
 - `city`: city where the sensor is used, either Paris, Antwerp or London
 - `country`: country where the sensor is used, either FR, BE or GB
 - `location`: the id of the sensor, either FR04014, BETR801 or London Westminster
