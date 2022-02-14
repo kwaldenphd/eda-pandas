@@ -72,7 +72,7 @@ We can load this data in Python from GitHub URLs, rather than having to download
 import pandas as pd
 
 # load titanic data from url
-titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/titanic.csv")
+titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/data/titanic.csv")
 
 # load air quality data from url
 air_quality = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv", index_col=0, parse_dates=True)
