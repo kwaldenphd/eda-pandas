@@ -601,9 +601,6 @@ unstacked_df.unstack()
 # load no2 observation data from file 
 # air_quality_no2_long = pd.read_csv("air_quality_no2_long.csv", parse_dates=True)
 
-# set column names
-air_quality_no2_long = air_quality_no2_long[["data.utc", "location", "parameter", "value"]]
-
 # make sure columns are renamed and no2 data is loaded
 display(air_quality_no2_long.head())
 ```
@@ -615,16 +612,13 @@ display(air_quality_no2_long.head())
 # load pm25 data from file
 # air_quality_pm25 = pd.read_csv("air_quality_pm25_long.csv", parse_dates=True)
 
-# rename columns
-air_quality_pm25 = air_quality_pm25[["data.utc", "location", "parameter", "value"]]
-
 # make sure columns are renamed and pm25 data is loaded
 display(air_quality_pm25.head())
 ```
 
 ```Python
 # load coordinates data from url
-stations_coord = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_stations.csv")
+# stations_coord = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_stations.csv")
 
 # load coordinates data from file
 # stations_coord = pd.read_csv("air_quality_stations.csv")
@@ -635,7 +629,7 @@ display(stations_coord.head())
 
 ```Python
 # load parameter data from url
-air_quality_parameters = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_parameters.csv")
+# air_quality_parameters = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_parameters.csv")
 
 # load parameter data from file
 # air_quality_parameters = pd.read_csv("air_quality_parameters.csv")
@@ -655,7 +649,7 @@ display(air_quality_parameters.head())
 107. We can do this using the `.contact()` function.
 ```Python
 # concatenate based on common column structure
-air_quality_concat = pd.concat([air_quality_pm25, air_quality_no2], axis=0)
+air_quality_concat = pd.concat([air_quality_pm25, air_quality_no2_long], axis=0)
 
 # show updated dataframe
 display(air_quality_concat.head())
@@ -670,7 +664,7 @@ display(air_quality_concat.head())
 # show table dimensions/shapes
 print('Shape of the ``air_quality_pm25`` table: ', air_quality_pm25.shape)
 
-print('Shape of the ``air_quality_no2`` table: ', air_quality_no2.shape)
+print('Shape of the ``air_quality_no2_long`` table: ', air_quality_no2_long.shape)
 
 print('Shape of the resulting ``air_quality`` table: ', air_quality_concat.shape)
 ```
@@ -693,7 +687,7 @@ display(air_quality_concat.head())
 115. In a situation where we don't have something like the `parameter` column, we can add an additional row index can help identify the data source.
 ```Python
 # concatenate based on PM25 and NO2 keys
-air_quality_concat2 = pd.concat([air_quality_pm25, air_quality_no2], keys=["PM25", "NO2"])
+air_quality_concat2 = pd.concat([air_quality_pm25, air_quality_no2_long], keys=["PM25", "NO2"])
 
 # show updated dataframe
 display(air_quality_concat2.head())
