@@ -427,13 +427,13 @@ air_quality_no2_long = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd
 
 ```Python
 # load data from url
-# air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv")
+# air_quality_no2_long = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2_long.csv")
 
 # load from file
-# air_quality_no2 = pd.read_csv("air_quality_no2.csv")
+# air_quality_no2_long = pd.read_csv("air_quality_no2_long.csv")
 
 # create subset with only no2 data
-no2 = air_quality_no2[air_quality_no2["parameter"] == "no2"]
+no2 = air_quality_no2_long[air_quality_no2_long["parameter"] == "no2"]
 
 # group by station locations
 no2_subset = no2.sort_index().groupby(["location"]).head(2)
