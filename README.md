@@ -518,7 +518,7 @@ display(no_2.head())
 
 85. In some cases, we might want to create a new table with calculations derived from an original data frame.
 
-86. For example, let's say we want the concentrations for <code>NO<sub>2</sub></code> and <code>PM<sub>2.5</sub></code> for each station stored as a table.
+86. For example, let's say we want the mean concentration values for <code>NO<sub>2</sub></code> and <code>PM<sub>2.5</sub></code> from each station stored as a table.
 
 <p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_9.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_9.svg?raw=true" /></a></p>
 
