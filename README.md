@@ -131,7 +131,7 @@ air_quality_parameters = pd.read_csv("air_quality_parameters.csv")
 
 ```Python
 # load titanic data from url
-# titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/titanic.csv)
+# titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/data/titanic.csv")
 
 # load data from file
 # titanic = pd.read_csv("titanic.csv")
