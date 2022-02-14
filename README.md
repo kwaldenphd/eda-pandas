@@ -77,11 +77,11 @@ titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro
 # load air quality data from url
 air_quality = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv", index_col=0, parse_dates=True)
 
+# load air quality long data from url
+air_quality_long = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv", parse_dates = True)
+
 # load no2 observation data (long) from url
 air_quality_no2_long = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2_long.csv", parse_dates=True)
-
-# load no2 air quality data from url
-air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_no2.csv")
 
 # load pm25 data from url
 air_quality_pm25 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_pm25_long.csv", parse_dates=True)
