@@ -570,10 +570,7 @@ unstacked_df.unstack()
 
 <blockquote>Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().</blockquote>
 
-<blockquote>Q5: Write sample code for at least two of the functions listed in Q4. Include code + comments.
-<ul>
-<li>You <strong>do not</strong> need to write code that actually loads an existing data file. That is, the lab does not provide data files that include these structures/attributes.</li>
-<li>Write <strong>sample code</strong> that shows the syntax you would use to load a file with the structures/attributes described in the question.</li></ul></blockquote>
+<blockquote>Q5: Write code for .pivot(), .melt(), and .pivot_table() using the air quality datasets or another dataset of your choosing. Include code + comments.</blockquote>
 
 <blockquote>Q6: Describe how you are thinking about needing to use the Q4 functions in relation to data you're interested in working with as part of the final project.</blockquote>
 
@@ -850,9 +847,7 @@ Q4: In your own words, provide a brief description/explanation for each function
   * `.stack()`
   * `.unstack`
 
-Q5: Write sample code for at least two of these functions. Include code + comments.
-  * You **do not** need to write code that actually loads an existing data file. That is, the lab does not provide data files that include these structures/attributes.
-  * Write **sample code** that shows the syntax you would use to load a file with the structures/attributes described in the question.
+Q5: Write code for .pivot(), .melt(), and .pivot_table() using the air quality datasets or another dataset of your choosing. Include code + comments
 
 Q6: Describe how you are thinking about needing to use the `.pivot()`, `.melt()`, `.pivot_table()`, `.stack()` or `.unstack` functions in relation to data you're interested in working with as part of the final project.
 
