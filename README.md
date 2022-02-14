@@ -495,7 +495,7 @@ old_data_frame.melt(id_vars=['first_identifier_variable_column', 'second_identif
 
 ```Python
 # create wide data format
-no2_pivoted = no2.pivot(columns="location", values="value").reset_index()
+no2_pivoted = no2.pivot(index = 'date.utc', columns="location", values="value").reset_index()
 
 # verify wide data
 display(no2_pivoted.head())
