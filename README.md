@@ -580,11 +580,11 @@ unstacked_df.unstack()
 
 99. `pandas` has somewhat similar functionality that allows you to merge and combine data from multiple tables.
 
-100. `pandas.merge` connects rows in DataFrames based on one or more key fields. This is similar to SQL JOIN operations.
+100. `pandas.merge` connects rows in DataFrames based on one or more key fields. 
 
-101. `pandas.concat` concatenates or "stacks" objects together along an axis.
+101. This is similar to SQL JOIN operations.
 
-102. `combine_first` allows you to splice overlapping data to fill in missing values.
+102. `pandas.concat` concatenates or "stacks" objects together along an axis.
 
 103. Let's work with some additional air quality datasets.
 - The `air_quality_no2_long.csv` file provies NO<sub>2</sub> values for three measurement stations.
