@@ -709,12 +709,12 @@ display(air_quality_concat2.head())
 
 <p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_11.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_11.svg?raw=true" /></a></p>
 
-122. We can merge the `stations_coord` and `air_quality` data frames based on a common field, `location`.
+122. We can merge the `stations_coord` and `air_quality_long` data frames based on a common field, `location`.
 
 123. To express this programatically in Python
 ```Python
 # merge based on location
-air_quality_merged = pd.merge(air_quality, stations_coord, how="left", on="location")
+air_quality_merged = pd.merge(air_quality_long, stations_coord, how="left", on="location")
 
 # show updated dataframe
 display(air_quality_merged.head())
@@ -736,7 +736,7 @@ display(air_quality_merged.head())
 
 ```Python
 # merge based on parameter and id columns
-air_quality_merged2 = pd.merge(air_quality, air_quality_parameters, how='left', left_on='parameter', right_on='id')
+air_quality_merged2 = pd.merge(air_quality_long, air_quality_parameters, how='left', left_on='parameter', right_on='id')
 
 # show merged df
 display(air_quality_merged2.head())
@@ -753,8 +753,9 @@ display(air_quality_merged2.head())
 <blockquote>Q7: In your own words, provide a description for the .concat() and .merge() functions. What do these functions do? How are they different?</blockquote>
 
 <blockquote>Q8: Write sample code for both the .concat() and .merge() functions. Include code + comments.<ul>
-<li>You <strong>do not</strong> need to write code that actually loads an existing data file. That is, the lab does not provide data files that include these structures/attributes.</li>
-<li>Write <strong>sample code</strong> that shows the syntax you would use to load a file with the structures/attributes described in the question.</li></ul></blockquote>
+<li>You <strong>do not</strong> need to write code that actually loads an existing data file.</li>
+<li>Write <strong>sample code</strong> that shows the syntax you would use to load a file with the structures/attributes described in the question.</li>
+<li>However you are welcome to work with the air quality data (or other datasets) for this question.</li></ul></blockquote>
 
 <blockquote>Q9: Describe how you are thinking about needing to use the .concat() and .merge() functions for the data you plan to work with in the final project.</blockquote>
 
@@ -848,7 +849,8 @@ Q6: Describe how you are thinking about needing to use the `.pivot()`, `.melt()`
 Q7: In your own words, provide a description for the `.concat()` and `.merge()` functions. What do these functions do? How are they different?
 
 Q8: Write sample code for both the `.concat()` and `.merge()` functions. Include code + comments.
-  * You **do not** need to write code that actually loads an existing data file. That is, the lab does not provide data files that include these structures/attributes.
+  * You **do not** need to write code that actually loads an existing data file.
   * Write **sample code** that shows the syntax you would use to load a file with the structures/attributes described in the question.
+  * However you are welcome to work with the air quality data (or other datasets) for this question.
 
 Q9: Describe how you are thinking about needing to use the `.concat()` or `.merge()` functions with the data you plan to work with in the final project.
