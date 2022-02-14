@@ -529,13 +529,13 @@ display(no_2.head())
 89. To express this programatically in Python:
 ```Python
 # create pivot table based on location and mean values
-air_quality.pivot_table(values="value", index="location", columns="parameter", aggfunc="mean")
+air_quality_long.pivot_table(values="value", index="location", columns="parameter", aggfunc="mean")
 ```
 
 90. We could also use `.groupby()` and `.mean()` to generate the same output.
 ```Python
 # show mean grouped by location and parameter
-air_quality.groupby(["parameter", "location"]).mean()
+air_quality_long.groupby(["parameter", "location"]).mean()
 ```
 
 <blockquote>Consult the `pandas` <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html#reshaping-pivot">documentation on pivot tables</a> to learn more about this function.</blockquote>
