@@ -336,7 +336,7 @@ display(air_quality.head())
 
 Again, because this is an element-wise calculation, the division operation is applied to all rows in the data frame. Python's other mathematical (`+`, `-`, `*`, `/`) and logical (`<`, `>`, `=`, etc.) all work element-wise.
 
-<blockquote>Q2: Describe element-wise calculation in your own words.</blockquote>
+<blockquote>Q2: Describe element-wise calculation in your own words. Code is NOT required for this question.</blockquote>
 
 <blockquote>Q3: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.</blockquote>
 
@@ -576,11 +576,11 @@ To reshape this data using `.unstack()`:
 unstacked_df.unstack()
 ```
 
-<blockquote>Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().</blockquote>
+<blockquote>Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack(). Code is NOT required for this question.</blockquote>
 
 <blockquote>Q5: Write code for .pivot(), .melt(), and .pivot_table() using the air quality datasets or another dataset of your choosing. Include code + comments.</blockquote>
 
-<blockquote>Q6: Describe how you are thinking about needing to use the Q4 functions in relation to data you're interested in working with as part of the final project.</blockquote>
+<blockquote>Q6: Describe how you are thinking about needing to use the Q4 functions in relation to data you're interested in working with as part of the final project. Code is NOT required for this question.</blockquote>
 
 # Combining Data
 
@@ -732,18 +732,18 @@ For more on different join/merge types:
 - [database style merging `pandas` documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html#merging-join)
 - [SQL comparison page in `pandas` documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html#compare-with-sql-join)
 
-132. Our key takeaways from this section:
+Our key takeaways from this section:
 - Mutliple tables can be concatenated row-rise or column-wise using the `.concat()` function
 - SQL-style joins can be accomplished using `.merge()`
 
-<blockquote>Q7: In your own words, provide a description for the .concat() and .merge() functions. What do these functions do? How are they different?</blockquote>
+<blockquote>Q7: In your own words, provide a description for the .concat() and .merge() functions. What do these functions do? How are they different? Code is NOT required for this question.</blockquote>
 
 <blockquote>Q8: Write sample code for both the .concat() and .merge() functions. Include code + comments.<ul>
 <li>You <strong>do not</strong> need to write code that actually loads an existing data file.</li>
 <li>Write <strong>sample code</strong> that shows the syntax you would use to load a file with the structures/attributes described in the question.</li>
 <li>However you are welcome to work with the air quality data (or other datasets) for this question.</li></ul></blockquote>
 
-<blockquote>Q9: Describe how you are thinking about needing to use the .concat() and .merge() functions for the data you plan to work with in the final project.</blockquote>
+<blockquote>Q9: Describe how you are thinking about needing to use the .concat() and .merge() functions for the data you plan to work with in the final project. Code is NOT required for this question.</blockquote>
 
 # Renaming, Mapping, and Reindexing
 
@@ -788,7 +788,7 @@ data_frame.rename(str.upper)
 data_frame.rename(str.lower)
 ```
 
-We can also rename row index labels usign `.rename()`.
+We can also rename row index labels using `.rename()`.
 
 ```Python
 # sample syntax for renaming columns using rename and a dictionary
@@ -842,7 +842,7 @@ Q2: Describe element-wise calculation in your own words. Code is NOT required fo
 
 Q3: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.
 
-Q4: In your own words, provide a brief description/explanation for each function: 
+Q4: In your own words, provide a brief description/explanation for each function. Code is NOT required for this question. 
   * `.pivot()`
   * `.melt()`
   * `.pivot_table()`
